@@ -3,12 +3,14 @@ package com.abhishek.game1;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 
 import static com.abhishek.game1.GameView.screenRatioX;
 import static com.abhishek.game1.GameView.screenRatioY;
 
 public class Bird {
     public int speed=20;
+    public boolean wasShoot=true;
     int x=0,y,width,height,birdCounter;
     Bitmap bird1,bird2,bird3,bird4;
     Bird(Resources res){
@@ -49,5 +51,8 @@ public class Bird {
         birdCounter=1;
         return bird4;
 
+    }
+    Rect getCollissionShape(){
+        return new Rect(x,y,x+width,y+height);
     }
 }
